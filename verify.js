@@ -14,8 +14,8 @@ function parse_url() {
 function get_signature(callback) {
     signature = document.getElementById("signature").value;
 
-    if (signature.lastIndexOf('http', 0) !== 0) {
-        callback(signature);
+    if (signature.indexOf('http') !== 0) {
+        return callback(signature);
     }
 
     var xmlhttp = new XMLHttpRequest();
