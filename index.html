@@ -5,7 +5,6 @@
         <script src="verify.js" type="text/javascript"></script>
     </head>
     <body>
-        Identity: <input type='text' size='60' id='identity' value='0x71B5A80A63FE12B0D74DABBFE4A883364AAF6E16' /><br />
         <textarea cols='70' rows='30' id='signature'>
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
@@ -28,7 +27,7 @@ W4M37qKHAt3hHxeG4pU6rmyt+4b86ZDsOOwgWJzv8fPt0R9Ez7IBvK3LIJ5whiUd
 AY4d9je6wb+odSRBmvD7
 =pWvq
 -----END PGP SIGNATURE-----</textarea><br />
-        <input type='button' value='Verify!' onclick='javascript:verify_signature(document.getElementById("identity").value, document.getElementById("signature").value);' />
+        <input type='button' value='Verify!' onclick='javascript:verify_signature(document.getElementById("signature").value);' />
         <script type="text/javascript">parse_url();</script>
     </body>
 </html>
