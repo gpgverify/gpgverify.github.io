@@ -14,8 +14,8 @@ function verify_signature(signature) {
     var sig = openpgp.cleartext.readArmored(signature);
     var identity = "0x" + sig.getSigningKeyIds()[0].toHex();
 
-    var key = openhkp.op_get(keyserverURL, identity, 0);
-    var keys = openpgp.key.readArmored(key);
+    var found_key = openhkp.op_get(keyserverURL, identity, 0);
+    var keys = openpgp.key.readArmored(found_key);
     var key = keys.keys[0];
 
     if (key.verifyPrimaryKey() != openpgp.enums.keyStatus.valid) {
