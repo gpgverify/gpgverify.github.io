@@ -1,8 +1,20 @@
 //keyserverURL = "http://subset.pool.sks-keyservers.net"
 keyserverURL = 'https://sks.disunitedstates.com'
 
-function verify_signature(identity, signature) {
+function parse_url() {
+    params = window.location.href.split(/#(.+)?/)[1];
+    if (typeof params === 'undefined') {
+        return false;
+    }
 
+    identity = decodeURIComponent(params.split(/\|(.+)?/)[0]);
+    signature = decodeURIComponent(params.split(/\|(.+)?/)[1]);
+
+    document.getElementById("identity").value = identity;    
+    document.getElementById("signature").value = signature;
+}
+
+function verify_signature(identity, signature) {
     var key = openhkp.op_get(keyserverURL, identity, 0);
     keys = openpgp.key.readArmored(key);
     key = keys.keys[0];
@@ -27,4 +39,3 @@ function verify_signature(identity, signature) {
     alert("VALID signature from\n\n" + identities);
     return true;
 }
-
