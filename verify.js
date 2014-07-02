@@ -28,6 +28,11 @@ function get_signature(callback) {
     xmlhttp.send();
 }
 
+function process_signature(signature) {
+    document.getElementById("signature").value = signature;
+    return verify_signature(signature);
+}
+
 function verify_signature(signature) {
     var sig = openpgp.cleartext.readArmored(signature);
     var identity = "0x" + sig.getSigningKeyIds()[0].toHex();
