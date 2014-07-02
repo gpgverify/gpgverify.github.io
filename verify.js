@@ -7,7 +7,8 @@ function parse_url() {
         return false;
     }
 
-    process_signature(signature);
+    document.getElementById("signature").value = signature;
+    get_signature(process_signature);
 }
 
 function get_signature(callback) {
