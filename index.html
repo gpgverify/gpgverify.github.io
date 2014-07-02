@@ -1,1 +1,33 @@
-Test
+<html>
+    <head>
+        <script src="openpgp.js" type="text/javascript"></script>
+        <script src="openhkp.js" type="text/javascript"></script>
+        <script src="verify.js" type="text/javascript"></script>
+    </head>
+    <body>
+        Identity: <input type='text' id='identity' value='slush@satoshilabs.com' /><br />
+        <textarea cols='70' rows='30' id='signature'>
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+lorem ipsum
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.14 (GNU/Linux)
+
+iQIcBAEBAgAGBQJTs060AAoJEOSogzZKr24WKlEP+QGPSAmiN8rr15xEafDmshqq
+ovCSHuj98U8rxpImLb6cy6jNMdwR44FrgjWjDi8ljGWbTTBhmi8oS0JYxJRvFagW
+RuLbmDm0eChZPmIkDw7CVyGM6rbjDYUbWsjKGaIdrW/re+cVZ3U9m/WsQpd2/XTz
+C1o1jVecTlDjHkVK7s8YeqPTd+csPK/z5T8XrEampjZATm8FHRSqqWnGo5tibddV
+ePmBQ5mstZ2OFFvHcp2StjvFun/5B35otkqjPMyq884Mnxz+/tTi/7jqRjITRbQ9
+YBbSowO8HyblhL6j48YJmtB/Ie/FnipfEV+9R50l6hMcjVTO3uPz9lPqVpRUfhYf
+a85ZNZko7c+5RGCXsh89qArUf/AjeM5YFsy46ZTuoVnPjh/oqZwQwaI7p6hRuMqx
+mzkwlz06CXPIj/pafF/8Hsd03zjgCmDarqEaVbxrmKXBVus75aQ8MP6zHJYbi0H/
+toYCsHtv4JCk2qXhCR26pzrLYLz8ge2TwVvaa+1VabcHIHjpnnO0oT2GLj317583
+brPAEjE4pyIrottEw9H1eJbAigUUsOmxwpR5Sh3hdPsSXfWTeUAIsnZP40nxKODv
+W4M37qKHAt3hHxeG4pU6rmyt+4b86ZDsOOwgWJzv8fPt0R9Ez7IBvK3LIJ5whiUd
+AY4d9je6wb+odSRBmvD7
+=pWvq
+-----END PGP SIGNATURE-----</textarea><br />
+        <input type='button' value='Verify!' onclick='javascript:verify_signature(document.getElementById("identity").value, document.getElementById("signature").value);' />
+    </body>
+</html>
