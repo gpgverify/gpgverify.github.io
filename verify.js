@@ -10,6 +10,24 @@ function parse_url() {
     document.getElementById("signature").value = signature;
 }
 
+function get_signature(callback) {
+    signature = document.getElementById("signature").value;
+
+    if (signature.lastIndexOf('http', 0) !== 0) {
+        callback(signature);
+    }
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            callback(xmlhttp.responseText);
+        }
+    }
+
+    xmlhttp.open("GET", 'https://sameorigin.herokuapp.com/?' + signature, true);
+    xmlhttp.send();
+}
+
 function verify_signature(signature) {
     var sig = openpgp.cleartext.readArmored(signature);
     var identity = "0x" + sig.getSigningKeyIds()[0].toHex();

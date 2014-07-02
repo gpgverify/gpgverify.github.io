@@ -3,10 +3,9 @@ gpgverify.github.io
 
 TODO:
 
-* Check key validity
-* Check fingerprint of retrieved pubkey
+* Replace openhkp with async networking
 * Use two keyservers as failover
 * Better error handling
-* Read signature/data from GET
+* Download signature from web if URL is provided
 * Code cleanup, comments
 * UI/design
